@@ -1,0 +1,6 @@
+{
+  "rootMoment": "Sprint-Log",
+  "format": "YYYY-MM-DD",
+  "folder": "Sprint-Log",
+  "template": "Sprint-Log/_Sprint-Template"
+}

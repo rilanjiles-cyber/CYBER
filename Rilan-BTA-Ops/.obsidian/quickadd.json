@@ -1,0 +1,39 @@
+{
+  "choices": [
+    {
+      "id": "new-lead",
+      "name": "New Lead",
+      "type": "template",
+      "command": true,
+      "templatePath": "Leads/_Lead-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{VALUE:Business Name}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Leads"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    },
+    {
+      "id": "new-sprint",
+      "name": "New Sprint Log",
+      "type": "template",
+      "command": true,
+      "templatePath": "Sprint-Log/_Sprint-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{DATE:YYYY-MM-DD}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Sprint-Log"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    }
+  ],
+  "version": "0.1"
+}

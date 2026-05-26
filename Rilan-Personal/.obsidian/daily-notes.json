@@ -1,0 +1,7 @@
+{
+  "autorun": false,
+  "format": "YYYY-MM-DD",
+  "folder": "Habits",
+  "template": "Habits/_Habit-Template",
+  "openOnStartup": false
+}

@@ -73,21 +73,63 @@
 
 ---
 
-### [Prospect Name / Business Name]
-**Industry:** [Type]
-**Ghost Score:** [0–10]
-**Platform:** [IG / Email / LinkedIn]
+### Coffee Crush — Mariela
+**Industry:** Coffee / Café
+**Ghost Score:** *(run /ghost-hunt)*
+**Platform:** Instagram DM
+**Lead note:** `Rilan-BTA-Ops/Leads/Coffee-Crush-Mariela.md`
 
 | Touch | Date | Status | Response |
 |---|---|---|---|
-| Touch 1 | [Date] | Sent / Scheduled / Draft | [None / Opened / Replied] |
-| Touch 2 | [Date] | Sent / Scheduled / Draft | [None / Opened / Replied] |
-| Touch 3 | [Date] | Sent / Scheduled / Draft | [None / Opened / Replied] |
+| Touch 1 | — | Not started | — |
+| Touch 2 | — | Not started | — |
+| Touch 3 | — | Not started | — |
 
-**Next action:** [What needs to happen and when]
-**Urgency:** 🔴 High / 🟡 Medium / 🟢 Low
+**Next action:** Find IG URL → Run `/ghost-hunt` → Build Signal Preview → Signal Preview IS Touch 1
+**Urgency:** 🟡 Medium
+**Special rule:** Do not cold-open. Build Signal Preview first — that IS Touch 1.
 **Notes:**
-> [What they said, where they are in the process, flags]
+> Per Devin: deliver Signal Preview as the opener, not a standard cold message.
+
+---
+
+### Texas Fury — Dr. Marlon
+**Industry:** *(confirm — likely fitness / combat sports)*
+**Ghost Score:** *(run /ghost-hunt)*
+**Platform:** Instagram DM
+**Lead note:** `Rilan-BTA-Ops/Leads/Texas-Fury-Dr-Marlon.md`
+
+| Touch | Date | Status | Response |
+|---|---|---|---|
+| Touch 1 | — | Not started | — |
+| Touch 2 | — | Not started | — |
+| Touch 3 | — | Not started | — |
+
+**Next action:** Confirm industry + IG URL → clarify Elda reference with Devin → draft warm opener
+**Urgency:** 🟡 Medium
+**Special rule:** Warm opener ONLY — reference Elda's share. Not a cold sequence.
+**Notes:**
+> Elda is the warm connection. Confirm exactly what she shared before drafting Touch 1.
+
+---
+
+### Pre-Owned Auto
+**Industry:** Pre-owned auto dealership
+**Ghost Score:** *(run /ghost-hunt)*
+**Platform:** LinkedIn (cold)
+**Lead note:** `Rilan-BTA-Ops/Leads/Pre-Owned-Auto.md`
+
+| Touch | Date | Status | Response |
+|---|---|---|---|
+| Touch 1 | — | Not started | — |
+| Touch 2 | — | Not started | — |
+| Touch 3 | — | Not started | — |
+
+**Next action:** Find dealership name + LinkedIn profile + owner/GM name → run `/ghost-hunt` → draft LinkedIn T1 with Luma/ElevenLabs angle
+**Urgency:** 🟢 Low (cold, no warm signal)
+**Special rule:** LinkedIn cold. Lead with Luma AI + ElevenLabs voiceover angle — inventory signal frame.
+**Notes:**
+> Production stack angle: Luma cinematic B-roll + ElevenLabs VO positions BTA as premium infrastructure for auto inventory signal.
 
 ---
 

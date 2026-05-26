@@ -1,0 +1,17 @@
+{
+  "promptDelete": false,
+  "defaultViewMode": "source",
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "Assets",
+  "showLineNumber": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": false,
+  "spellcheck": true,
+  "tabSize": 2
+}

@@ -1,0 +1,90 @@
+{
+  "choices": [
+    {
+      "id": "new-journal",
+      "name": "New Journal Entry",
+      "type": "template",
+      "command": true,
+      "templatePath": "Journal/_Journal-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{DATE:YYYY-MM-DD}}-journal"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Journal"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    },
+    {
+      "id": "new-fitness",
+      "name": "New Fitness Log",
+      "type": "template",
+      "command": true,
+      "templatePath": "Fitness/_Fitness-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{DATE:YYYY-MM-DD}}-fitness"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Fitness"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    },
+    {
+      "id": "new-skill",
+      "name": "New Skill Note",
+      "type": "template",
+      "command": true,
+      "templatePath": "Skillset/_Skill-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{VALUE:Skill Name}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Skillset"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    },
+    {
+      "id": "new-direction",
+      "name": "New Direction Note",
+      "type": "template",
+      "command": true,
+      "templatePath": "Direction/_Direction-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{VALUE:Direction Focus}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Direction"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    },
+    {
+      "id": "new-reflection",
+      "name": "New Reflection",
+      "type": "template",
+      "command": true,
+      "templatePath": "Reflection/_Reflection-Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{DATE:YYYY-MM-DD}}-reflection"
+      },
+      "folder": {
+        "enabled": true,
+        "folder": "Reflection"
+      },
+      "openFile": true,
+      "openFileInNewTab": false
+    }
+  ],
+  "version": "0.1"
+}
