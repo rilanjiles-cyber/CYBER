@@ -1,299 +1,304 @@
 # SIGNAL SCOUT PROTOCOL
-## The Intel Sprint Workflow — Research → Score → Draft in One Claude Session
-> This is the loop you run for every prospect.
+## Research → Score → Draft. One Claude Session Per Prospect.
+
+> This is the front end of the Ghost Hunt. Before any message gets written, every prospect gets scored.
 
 ---
 
-## THE LOOP
+## THE SYSTEM IN ONE LINE
+
+> Drop a URL or handle into Claude. Get a Ghost Score, three gap bullets, and a ready-to-send message draft — all in the same session.
 
 ```
-PROSPECT (URL / handle / company name)
+PROSPECT (URL / handle / name + company)
         ↓
-  INTEL GATHER          → Pull their digital presence (Google, IG, website, reviews)
+  SIGNAL SCOUT PROMPT
         ↓
-  SIGNAL SCOUT PROMPT   → Ghost Score 0–10 + 3 gap bullets + First Asset Rec
+  GHOST SCORE 0–10 + gap bullets + first asset rec
         ↓
-  SIGNAL MESSAGE GEN    → Touch 1 draft, tone-matched to Ghost Score
+  SIGNAL MESSAGE GENERATOR
         ↓
-  LOG IN HUBSPOT        → Ghost Score, Gap Tier, top gap, Axis estimate, platform
+  TOUCH 1 DRAFT — BTA voice, tone-matched to score
         ↓
-  TAG: DRAFT — DEVIN REVIEW
-        ↓
-  Devin reviews → sends
+  LOG IN HUBSPOT → DEVIN REVIEWS → SEND
 ```
-
-**Session target:** 10 scored leads / 5 drafted Touch 1s per sprint.
-**Non-negotiable:** Nothing goes out without Devin's eyes on it.
 
 ---
 
-## STEP 1 — INTEL GATHER
+## PART 1 — SIGNAL SCOUT PROMPT
 
-Before you open Claude, spend 5–7 minutes pulling raw data on the prospect. The better your inputs, the sharper your Ghost Score.
+**Use when:** Evaluating any new prospect during an Intel Sprint.
+**Input:** Their URL, Instagram handle, LinkedIn profile, or Google listing.
+**Output:** Ghost Score (0–10) + gap bullets + Axis Assessment estimate.
 
-**What to pull:**
+---
 
-| Source | What You're Looking For |
+### THE PROMPT — copy and paste into Claude:
+
+```
+You are a Signal Scout for Blitz The Axis (BTA), a Signal Architecture agency in San Antonio.
+
+Your job: identify "Ghosts" — businesses with real-world quality that are invisible, inactive, or underperforming online. The gap between what they've built and what their signal says is the Axis Gap. That gap costs them revenue.
+
+Analyze the business at: [URL or @HANDLE or "BUSINESS NAME, San Antonio TX"]
+
+---
+
+SCORE EACH SIGNAL 0–2. TOTAL = GHOST SCORE (0–10).
+
+SIGNAL 1 — CONTENT FREQUENCY
+0 = No video content in 30+ days. Full Ghost.
+1 = Posts exist but no system — inconsistent, sparse, or random
+2 = Consistent volume but no quality standard or hook
+
+SIGNAL 2 — PRODUCTION QUALITY
+0 = iPhone-only, shaky, bad lighting, no hook. Grainy.
+1 = Watchable but generic — could be any business in their category
+2 = Polished visuals but missing brand voice, CTA, or story
+
+SIGNAL 3 — SIGNAL-TO-REVENUE PATH
+0 = Content exists but zero bridge to offer, booking, or purchase
+1 = Soft CTA ("link in bio", "DM us") — no urgency, no specificity
+2 = CTA present but weak — generic offer, not tied to their highest-value service
+
+SIGNAL 4 — SOCIAL PROOF IN CONTENT
+0 = No testimonials, results, or reviews surfaced in any content
+1 = Written proof only — Google reviews quoted in text posts, nothing visual
+2 = Some proof exists but it's buried, static, or not used in video format
+
+SIGNAL 5 — PLATFORM CONSISTENCY
+0 = Essentially active on 1 platform max, ghost everywhere else
+1 = Present on 2+ platforms but inconsistent — dead stretches, no rhythm
+2 = Consistent effort across platforms but engagement is low relative to following
+
+---
+
+RETURN THIS FORMAT EXACTLY:
+
+BUSINESS: [name]
+INDUSTRY: [specific type]
+LOCATION: [city/area if visible]
+
+SIGNAL SCORES:
+- Content Frequency: [0/1/2] — [one sharp observation]
+- Production Quality: [0/1/2] — [one sharp observation]
+- Signal-to-Revenue Path: [0/1/2] — [one sharp observation]
+- Social Proof: [0/1/2] — [one sharp observation]
+- Platform Consistency: [0/1/2] — [one sharp observation]
+
+GHOST SCORE: [X]/10
+
+GAP TIER:
+[ ] Cold Spot (0–3) — soft probe only, no pitch
+[ ] Active Haunt (4–6) — full BTA offer
+[ ] Digital Emergency (7–10) — priority outreach, Signal Preview if possible
+
+THEIR THREE BIGGEST GAPS (specific, not generic):
+1. [What's missing + what it's likely costing them]
+2. [What's missing + what it's likely costing them]
+3. [What's missing + what it's likely costing them]
+
+FIRST ASSET RECOMMENDATION:
+[One specific content asset — format / platform / hook / offer]
+
+AXIS ASSESSMENT ESTIMATE:
+- Industry Tier (0–10): [score + reason]
+- Digital Gap (0–10): [score + reason]
+- Follower Interaction (0–8): [score + reason]
+- Revenue Potential (0–8): [score + reason]
+Estimated Axis Score: [X]/36
+Verdict: [ ] Emergency (30–36) [ ] Warm Lead (15–29) [ ] Archive (under 15)
+```
+
+---
+
+## PART 2 — SIGNAL MESSAGE GENERATOR
+
+**Use when:** Ghost Score and gap bullets are in hand.
+**Input:** Paste the Scout output directly.
+**Output:** Touch 1 draft, ready for Devin to review.
+
+---
+
+### THE PROMPT — copy and paste into Claude:
+
+```
+You are writing a cold outreach message for Blitz The Axis (BTA), a Signal Architecture agency in San Antonio.
+
+BTA BRAND VOICE — non-negotiable:
+- Tone: surgical, no filler. Operator talking to operator.
+- Specific beats generic every time. Name the actual gap.
+- No: "I help businesses like yours." No: "I'd love to connect." No: "Hope this finds you well."
+- Short. Every line earns its place.
+- Sound like someone who did their homework — not a vendor cold-calling a list.
+
+---
+
+RESEARCH INPUT:
+
+Business: [NAME]
+Contact name/role (if known): [NAME / ROLE or "unknown"]
+Platform: [Instagram DM / LinkedIn / Email]
+Ghost Score: [X]/10
+Gap Tier: [Cold Spot / Active Haunt / Digital Emergency]
+
+Top 3 Gaps:
+1. [paste]
+2. [paste]
+3. [paste]
+
+First Asset Recommendation: [paste]
+
+---
+
+TONE BY TIER:
+
+Cold Spot (0–3): CURIOUS
+- Lead with one observation. No ask yet. Plant the seed.
+- Pattern: "Noticed [specific thing]. Just sharing it."
+
+Active Haunt (4–6): DIRECT
+- Name the gap. Connect it to revenue. Offer the call.
+- Pattern: "[Gap] at a [business type] at this level usually runs about 15–20% of monthly inbound. We close that. Worth 15 minutes?"
+
+Digital Emergency (7–10): SURGICAL
+- Name the revenue cost. Propose the specific fix. One yes/no.
+- Pattern: "[Specific gap] for a [business] with [indicator of real quality]. That's revenue sitting on the table. We close it. Want to see what that looks like for [Business Name]?"
+
+---
+
+WRITE:
+One Touch 1 message, 60–110 words, that:
+1. Opens with ONE specific observation from the top gaps. Not a compliment. An observation.
+2. Names the likely consequence of that gap.
+3. Introduces BTA in one phrase only: "we close the gap between what a business has built and what its signal says."
+4. Offers one low-friction next step: 15-min call, or a Signal Preview if available.
+5. Ends with a single yes/no question.
+
+RULES:
+- Do NOT write multiple versions. One draft. Make it right.
+- Do NOT write a subject line unless platform = Email.
+- Do NOT use the word "just."
+- If you can't be specific, ask for more research before writing.
+```
+
+---
+
+## PART 3 — TONE REFERENCE BY TIER
+
+### COLD SPOT (Ghost Score 0–3)
+**Approach:** You noticed something. You're sharing it. No ask.
+
+> "Hey [Name] — noticed [specific gap]. Not a pitch — just something that stood out given what you're building."
+
+---
+
+### ACTIVE HAUNT (Ghost Score 4–6)
+**Approach:** Name the gap. Name the consequence. Offer the call.
+
+> "[Name] — [specific gap] on a [business type] with your level of [following / reviews / reputation] usually means 15–20% of inbound is walking past. We close that gap. Worth 15 minutes?"
+
+---
+
+### DIGITAL EMERGENCY (Ghost Score 7–10)
+**Approach:** Revenue cost named. Fix proposed. One yes/no. No softness.
+
+> "[Name] — [specific gap] for a [business] with [clear indicator of quality]. That gap is costing you customers who looked you up and left. We close it fast. Want to see what we'd build for [Business Name]?"
+
+---
+
+## PART 4 — RILAN'S INTEL SPRINT WORKFLOW
+
+### Before the Sprint
+- [ ] HubSpot open and logged in
+- [ ] Claude open (claude.ai) with Master Context Block loaded
+- [ ] LinkedIn People filter: "San Antonio" + target industry
+- [ ] Apollo.io open for email enrichment if needed
+- [ ] Session target: 10 scored leads / 5 drafted Touch 1s
+
+---
+
+### Per-Prospect Loop — 10–15 minutes each
+
+**Step 1 — Pull the profile (2 min)**
+- Check Instagram + website (or LinkedIn + Google listing)
+- Note: follower count, last post date, video quality, proof/CTA visible
+
+**Step 2 — Run Signal Scout Prompt (3 min)**
+- Paste Signal Scout Prompt into Claude
+- Fill in URL/handle
+- Copy full output
+
+**Step 3 — Log in HubSpot (2 min)**
+
+| Field | Source |
 |---|---|
-| **Google Business Profile** | Review count, average rating, last review date, photo count, posting frequency, category accuracy |
-| **Google Search** | What page do they rank on for their primary keyword + city? |
-| **Website** | Age/design quality, mobile-friendliness, whether it has CTAs, testimonials, case studies, clear service descriptions |
-| **Instagram** | Follower count, posting frequency, content quality, engagement rate (likes+comments ÷ followers), last post date |
-| **Facebook** | Activity level, reviews/recommendations count |
-| **LinkedIn** | Presence or absence for B2B or professional services |
-| **YouTube** | Any video content? Channel if present. |
-| **Yelp / TripAdvisor** | If relevant to industry — review count and recency |
+| First Name + Company | Profile |
+| Instagram/LinkedIn URL | Profile |
+| Industry | Signal Scout output |
+| Ghost Score (0–10) | Signal Scout output |
+| Estimated Axis Score | Signal Scout output |
+| Gap Tier | Signal Scout output |
+| Top Gap (one line) | Gap bullet #1 from Scout |
+| First Asset Rec | Signal Scout output |
+| Status | → New Lead |
+| Notes | Paste full Scout output |
 
-**Fast Intel Method:**
+**Step 4 — Draft Touch 1 (3 min)**
+- Paste Signal Message Generator into Claude
+- Fill in fields from Scout output
+- Paste draft into HubSpot Notes → tag: **DRAFT — DEVIN REVIEW**
 
-1. Google: `[business name] [city]` — check page, check GBP panel, check reviews
-2. Google: `[service type] [city]` — what page do they show on?
-3. Visit their website — 30-second scan: does it look built this decade?
-4. Pull their Instagram — open profile, count posts last 90 days
-5. Note any obvious mismatch: Are their reviews great but their website terrible? Are they posting sporadically but have real credentials?
-
-**Record your notes in a simple format:**
-```
-Business: [Name]
-Location: [City, State]
-Industry: [Type]
-Google Reviews: [#] reviews, [rating] stars
-Google Rank: page [#] for "[keyword] [city]"
-Website: [Functional/Broken/Grainy/Missing]
-Instagram: [followers] followers, [post frequency], last post [date]
-YouTube: [Yes/No]
-Key Mismatch: [1 sentence on the biggest gap you see]
-Quality Signal: [1 sentence on what makes them real — awards, reviews, craft evidence]
-```
+**Step 5 — Repeat. Log the session.**
+- After 10 prospects: text Devin — "X leads in, X drafts tagged"
+- Nothing goes out without Devin's read
 
 ---
 
-## STEP 2 — SIGNAL SCOUT PROMPT
+## PART 5 — SIGNAL PREVIEW UPGRADE
 
-Open Claude. Load the Master Context Block (from `sops/bta-claude-field-guide.md`). Then run:
+When Ghost Score hits **8+**, skip the DM. Build the Signal Preview instead.
 
-```
-SIGNAL SCOUT PROMPT:
+**What it is:** A 60–90 second screen recording or Loom teardown of their specific gap — their Instagram, their site, their content on screen. Named gaps. One proposed fix.
 
-You are a BTA Signal Scout. I'm going to give you a business to analyze.
+**Why it works:** The video IS the pitch. The message is just the delivery.
 
-[MASTER CONTEXT BLOCK already loaded]
+**Send line:**
+> "I made this for [Business Name] — 90 seconds, shows exactly where the gap is and what we'd fix first."
+> [Loom link]
 
-Business: [name]
-Location: [city, state]
-Industry: [type]
-Intel gathered:
-- Google: [review count, rating, rank for primary keyword]
-- Website: [quick description]
-- Instagram: [followers, frequency, last post]
-- Key mismatch: [what you noticed]
-- Quality signal: [why they're real]
-
-Analyze and return:
-1. Ghost Score (0–10) with one-sentence rationale
-2. 3 specific Axis Gap bullets (use my data, be precise)
-3. First Asset Recommendation (which Signal Layer to close first and why)
-4. Recommended Touch 1 tone: Curious / Direct / Surgical
-
-Format: short, scannable, no padding. BTA brand voice.
-```
+Signal Preview replaces Touch 1. If no response, the 3-touch sequence runs from Touch 2 as normal.
 
 ---
 
-## GHOST SCORE TIERS
+## QUICK REFERENCE CARD
 
-| Score | Classification | Tone | Action |
+| Ghost Score | Tier | Tone | CTA |
 |---|---|---|---|
-| **0–3** | **Cold Spot** | Curious — observation only | Plant the seed. Low priority. Touch 1 only if their industry is priority. |
-| **4–6** | **Active Haunt** | Direct — name the gap | Active outreach. Touch 1 names what you found. 15-min call offer. |
-| **7–10** | **Digital Emergency** | Surgical — name the cost | Top priority. Signal Preview or direct gap + revenue cost. |
+| 0–3 | Cold Spot | Curious | Observation only — no ask |
+| 4–6 | Active Haunt | Direct | 15-min call |
+| 7–10 | Digital Emergency | Surgical | Signal Preview or 15-min call |
 
-**Score interpretation:**
+**Cross-check rule:** Ghost Score tells you the tone. Axis Score (1–36) confirms the fit.
 
-**0–3 Cold Spot**
-- Quality isn't clearly established OR digital gap isn't wide enough to justify urgency
-- Their presence, while imperfect, is acceptable relative to competitors
-- No strong revenue recovery story yet
-- **Action:** Log, move on. Reassess in 60 days.
-
-**4–6 Active Haunt**
-- Clear quality indicators (reviews, reputation, word-of-mouth signals)
-- Clear digital gaps (weak GBP, inconsistent social, page 2–3 ranking)
-- Revenue recovery story is buildable
-- **Action:** Full 3-touch sequence. Lead with what you found. Offer the 15-minute call.
-
-**7–10 Digital Emergency**
-- Elite quality signals AND wide digital gap — the mismatch is obvious
-- You can name a specific revenue cost with confidence
-- This is a Ghost — they need BTA now
-- **Action:** Surgical outreach. Name the gap and the cost. Signal Preview if possible. Move fast.
+| Ghost Score | Axis Score | Decision |
+|---|---|---|
+| 7+ | 30+ | Priority queue — Signal Preview if possible |
+| 7+ | Under 15 | Do NOT pursue — DNA mismatch despite signal gap |
+| Under 4 | 30+ | Good fit, weak urgency — watch and revisit in 30 days |
+| 4–6 | 15–29 | Standard sequence — Active Haunt tone |
 
 ---
 
-## STEP 3 — SIGNAL MESSAGE GENERATOR
+## RELATED FILES
 
-Once you have the Ghost Score, run the Touch 1 draft.
-
-```
-SIGNAL MESSAGE GENERATOR:
-
-[MASTER CONTEXT BLOCK already loaded]
-
-Draft a Touch 1 outreach message for this prospect.
-
-Business: [name]
-Ghost Score: [0–10]
-Platform: [Instagram DM / email / LinkedIn / text]
-Top gap (from Signal Scout): [paste the most compelling bullet]
-Key data point: [the most striking specific fact — e.g., "4.9 stars, 62 reviews, not ranking"]
-
-Rules:
-- DO NOT pitch in Touch 1
-- Name what you noticed — ask one question
-- Max 5 sentences
-- No emojis unless Instagram (then max 1)
-- Tone: [Curious / Direct / Surgical — match the Ghost Score tier]
-- BTA brand voice: surgical, no filler, operator to operator
-
-Output: just the message. No preamble.
-```
+- [[prompt-outreach]] — Touch 1/2/3 message templates
+- [[1-36-axis-assessment]] — Full qualification scoring system
+- [[follow-up-outreach]] — 3-touch sequence and per-lead maps
+- [[bta-operator-onboarding-rilan]] — Rilan's reference doc
 
 ---
+*Backlinks: [[open-loops]] · [[1-36-axis-assessment]] · [[prompt-outreach]] · [[bta-operator-onboarding-rilan]]*
 
-## STEP 4 — LOG IN HUBSPOT
-
-Every scored prospect goes into HubSpot before you close the session. No exceptions.
-
-**Required fields:**
-
-| Field | What to Enter |
-|---|---|
-| **Contact Name** | Business owner name (if known) or business name |
-| **Company** | Business name |
-| **Industry** | Service category |
-| **Ghost Score** | 0–10 number |
-| **Gap Tier** | Cold Spot / Active Haunt / Digital Emergency |
-| **Top Gap** | One sentence — the biggest gap you found |
-| **Axis Estimate** | Your rough estimate of monthly revenue leak (if calculable) |
-| **Platform** | Where Touch 1 will go (IG / email / LinkedIn / text) |
-| **Touch 1 Status** | DRAFT — DEVIN REVIEW |
-| **Notes** | Paste full Signal Scout output here |
-
-**Pipeline Stage:**
-- After logging: move to **"Touch 1 — Queued"**
-- After Devin approves and sends: move to **"Touch 1 — Sent"**
-- After response: move to **"Engaged"**
-- After call scheduled: move to **"Call Scheduled"**
-
----
-
-## STEP 5 — DEVIN REVIEW
-
-Tag every draft `DRAFT — DEVIN REVIEW` in HubSpot.
-
-**What Devin reviews:**
-- Ghost Score accuracy (does it match the intel?)
-- Touch 1 message — tone, voice, platform-appropriateness, strategic fit
-- First Asset Recommendation — is this the right entry point?
-- Go / No-go on sending
-
-**Turnaround:** Devin reviews batches. Submit by end of each sprint. Nothing goes out same day without explicit approval.
-
-**If Devin makes edits:** Note the pattern. If the same type of correction happens more than twice, update your Claude prompts to prevent it.
-
----
-
-## SPRINT STRUCTURE
-
-### The 10-5 Sprint (Standard Daily Sprint)
-
-**Time:** 2–3 hours
-**Goal:** 10 scored leads, 5 drafted Touch 1s
-
-```
-[0:00–0:10]  Load Claude, paste Master Context Block, confirm it's active
-[0:10–1:10]  Intel Gather — 6 minutes per prospect × 10 prospects
-[1:10–2:00]  Signal Scout — run for each of 10 prospects (4–5 min each)
-[2:00–2:40]  Signal Message Generator — run for top 5 Ghost Scores
-[2:40–3:00]  Log all 10 in HubSpot, tag all 5 drafts for review
-```
-
-**Prioritize:** Always run Signal Message Generator on your highest Ghost Scores first.
-
-### The Deep Scout (When You're Building a Pitch)
-
-For prospects who've responded or who are in active outreach — run the full Axis Assessment (from `wiki/1-36-axis-assessment.md`) before the call. Use the Call Prep Sheet Prompt in the field guide.
-
----
-
-## WHERE TO FIND PROSPECTS
-
-### Priority Hunting Grounds — San Antonio
-
-**Barbershops / Salons**
-- Search: `"best barbershop San Antonio"` → look at page 2–3 results
-- Instagram: hashtags `#SABarbershop` `#SanAntonioBarbershop` `#210Cuts`
-- Look for: High Google ratings, low review count relative to quality, outdated Instagram
-
-**Contractors / Trades**
-- Search: `"HVAC San Antonio"` / `"roofing San Antonio"` / `"electrician San Antonio"` → check page 2–3
-- Nextdoor recommendations: businesses people rave about with no web presence
-- Look for: Family business, owner-operated, word-of-mouth built
-
-**Medical / Dental / Aesthetic**
-- Search: `"med spa San Antonio"` / `"cosmetic dentist San Antonio"` → check pages 2–3
-- Look for: Strong client transformation results but weak content showing them
-
-**Auto / Detailing**
-- Search: `"auto detailing San Antonio"` → Instagram search
-- Look for: Craftsman-level work posted inconsistently, no real following despite skill
-
-**Restaurants**
-- Google Maps: filter by rating 4.5+ in specific neighborhoods
-- Look for: Full dining room, loyal regulars, no digital presence beyond a basic listing
-
-**Signal Indicators That Scream Ghost:**
-- 4.8+ stars with fewer than 50 reviews (underrepresented quality)
-- Last social post was 3+ months ago
-- Website looks like it was built before 2020
-- Not ranking for their own name + city
-- Business card / signage is polished but Google listing has no photos
-
----
-
-## SIGNAL SCOUT QUALITY STANDARDS
-
-A Scout output is ready for Devin review when:
-
-✅ Ghost Score has a one-sentence rationale tied to specific data
-✅ All 3 gap bullets cite specific findings (not vague — "47 reviews on page 3" not "low online visibility")
-✅ First Asset Rec is specific to their biggest gap, not generic
-✅ Touch 1 message is 5 sentences or fewer
-✅ Touch 1 does not mention price, tier, or service offering
-✅ Touch 1 sounds like a human who did their homework, not a template
-✅ All fields filled in HubSpot
-✅ Tagged DRAFT — DEVIN REVIEW
-
----
-
-## COMMON SCOUT ERRORS — AND HOW TO FIX THEM
-
-**Error: Touch 1 pitches the service**
-Fix: Rerun Signal Message Generator with explicit constraint: "DO NOT mention BTA, our services, or pricing. Touch 1 only opens the loop."
-
-**Error: Ghost Score too high for weak quality signals**
-Fix: Ask yourself — if you were a buyer, would you pay premium for this business? If not, score it lower. The Ghost must have real quality.
-
-**Error: Gap bullets are vague**
-Fix: Every bullet should have a number or a specific observation. "Low social media presence" → "Instagram: 94 followers, last post 4 months ago, 0 reels."
-
-**Error: First Asset Rec is wrong for the gap**
-Fix: Match the layer to the widest gap. GBP and reviews = Foundation Layer. Weak social = Social Layer. No search ranking = Search Layer.
-
-**Error: HubSpot fields missing**
-Fix: Don't close the session until HubSpot is fully updated. The record is worthless without the Ghost Score and gap summary.
-
----
-
-*Signal Scout Protocol · Last Updated 2026-05-26*
+*Signal Scout Protocol · Last Updated 2026-05-28*
 *Devin Jones — blitztheaxis.com · devin@blitztheaxis.com*
