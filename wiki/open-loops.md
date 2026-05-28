@@ -137,15 +137,48 @@
 
 ---
 
+## PRIMO MEDICAL SUPPLIES — Culebra Rd
+**Industry:** Medical / DME supplies
+**Ghost Score:** 7/10 *(pending live intel)*
+**Platform:** TBD — needs research
+**Lead note:** `Rilan-BTA-Ops/Leads/Primo-Medical-Supplies.md`
+
+| Touch | Date | Status | Response |
+|---|---|---|---|
+| Touch 1 | — | Not started | — |
+
+**Next action:** Pull Google listing → confirm DME + insurance billing → run /touch-sequence
+**Urgency:** 🟡 Medium
+**Notes:**
+> Scouted in person 2026-05-28 on Culebra Rd. Ghost Score may upgrade to 8–9 if DME confirmed. Referral buyer trust is the lead angle.
+
+---
+
+## TRANQUILO AMIGOS — MEETING TODAY 🔴
+**Industry:** Hemp / Cannabis retail
+**Ghost Score:** 9/10 · Axis: 34/36
+**Platform:** In-person
+**Lead note:** `Rilan-BTA-Ops/Leads/Tranquilo-Amigos.md`
+**Address:** 6563 Babcock Rd Suite 111
+
+**Status:** Meeting scheduled today — 2026-05-28
+**Target:** Signal Build $4,500/mo · $2,250 deposit
+**Rilan's job:** Open the room, ask Q7, handle third owner objection
+**Post-meeting:** Update lead note with outcome immediately after
+
+---
+
 ## PENDING DELIVERABLES
 
 *Things you owe Devin or a client — with deadlines.*
 
 | Item | For | Due | Status |
 |---|---|---|---|
-| [Deliverable] | [Devin / Client Name] | [Date] | 🔲 Not started / ⚠️ In progress / ✅ Done |
-| [Deliverable] | [Devin / Client Name] | [Date] | 🔲 Not started / ⚠️ In progress / ✅ Done |
-| [Deliverable] | [Devin / Client Name] | [Date] | 🔲 Not started / ⚠️ In progress / ✅ Done |
+| Post-meeting update — Tranquilo Amigos | Devin | Today | 🔲 After the meeting |
+| Confirm: who is Elda (Texas Fury) | Devin | This week | 🔲 Not started |
+| Find IG URL — Coffee Crush Mariela | Self | This week | 🔲 Not started |
+| Find LinkedIn — Pre-Owned Auto dealership | Self | This week | 🔲 Not started |
+| Confirm DME vs retail — Primo Medical | Self | This week | 🔲 Not started |
 
 ---
 
