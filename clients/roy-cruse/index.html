@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roy Cruse | San Antonio Barber</title>
+  <meta name="description" content="Book Roy Cruse, a San Antonio barber specializing in premium fades, beard work, designs, enhancements, and house calls." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #050505; --deep: #0b0b0d; --card: #111115;
+      --silver: #d9d9d9; --muted: #a7a7ad; --white: #ffffff;
+      --line: rgba(255,255,255,.11); --gold: #d5a84f; --spurs: #c7c9cc;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Manrope, system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1160px, 92%); margin: auto; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(213,168,79,.18), transparent 30%),
+        radial-gradient(circle at 10% 20%, rgba(199,201,204,.14), transparent 28%),
+        linear-gradient(180deg, #050505 0%, #0b0b0d 46%, #050505 100%);
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent 70%);
+      z-index: -1;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(5,5,5,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .06em; }
+    .brand span { color: var(--gold); }
+    .navlinks {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .navlinks a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: .25s;
+    }
+    .mobile-nav { display: none; border-bottom: 1px solid var(--line); }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 14px 24px;
+      font-weight: 800;
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: color .2s;
+    }
+    .mobile-nav a:last-child { border: none; }
+    .mobile-nav a:hover { color: var(--white); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      padding: .9rem 1.35rem;
+      font-weight: 900;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: .25s;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--white), var(--spurs));
+      color: #050505;
+      border-color: transparent;
+      box-shadow: 0 16px 50px rgba(255,255,255,.1);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 22px 65px rgba(213,168,79,.2); }
+    .btn-gold {
+      background: linear-gradient(135deg, #f0c96a, #c49030);
+      color: #050505;
+      border-color: transparent;
+      box-shadow: 0 14px 44px rgba(213,168,79,.22);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 20px 58px rgba(213,168,79,.32); }
+    .btn-dark { background: rgba(255,255,255,.07); color: var(--white); }
+    .btn-dark:hover { background: rgba(255,255,255,.12); }
+
+    /* ── HERO ── */
+    .hero { min-height: 92vh; display: grid; align-items: center; padding: 54px 0; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .kicker {
+      color: var(--gold);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .78rem;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: .035em;
+      line-height: .88;
+      font-size: clamp(4.4rem, 11vw, 9.8rem);
+      margin: 16px 0 18px;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold); text-shadow: 0 0 34px rgba(213,168,79,.24); }
+    .lead { font-size: clamp(1rem, 1.7vw, 1.2rem); line-height: 1.8; color: #d6d6dc; max-width: 640px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+    .stat {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+      border-radius: 22px;
+      padding: 18px;
+    }
+    .stat b {
+      font-family: 'Bebas Neue';
+      font-size: 2.2rem;
+      letter-spacing: .05em;
+      color: var(--silver);
+      display: block;
+    }
+    .stat p { margin: .1rem 0 0; color: var(--muted); font-size: .84rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .hero-media { position: relative; }
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border: 1px solid rgba(213,168,79,.45);
+      border-radius: 36px;
+    }
+    .hero-media img {
+      position: relative;
+      width: 100%;
+      min-height: 580px;
+      object-fit: cover;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 40px 120px rgba(0,0,0,.7);
+    }
+    .price-badge {
+      position: absolute;
+      left: -24px;
+      bottom: 36px;
+      background: rgba(5,5,5,.9);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(18px);
+      border-radius: 22px;
+      padding: 16px 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    .price-badge b { font-family: 'Bebas Neue'; font-size: 3rem; color: var(--gold); font-weight: 400; display: block; }
+    .price-badge p { margin: 0; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 88px 0; }
+    .section-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: .035em;
+      line-height: .88;
+      font-size: clamp(3rem, 6vw, 6.2rem);
+      margin: 8px 0 0;
+    }
+    .section-sub { color: var(--muted); line-height: 1.7; max-width: 600px; margin: 0; font-size: 1rem; }
+    .pill {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .5rem .85rem;
+      color: var(--gold);
+      font-size: .74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      background: rgba(255,255,255,.04);
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      border-radius: 28px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.28);
+    }
+
+    /* ── SERVICES ── */
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .service { padding: 28px; }
+    .service .num { font-family: 'Bebas Neue'; color: var(--gold); font-size: 2rem; }
+    .service h3 { font-family: 'Bebas Neue'; font-size: 2.2rem; letter-spacing: .05em; margin: 14px 0 8px; }
+    .service p { color: var(--muted); line-height: 1.65; }
+
+    /* ── GALLERY ── */
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .gallery img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.1);
+      filter: saturate(.95) contrast(1.04);
+      transition: .28s;
+    }
+    .gallery img:hover { transform: translateY(-6px); box-shadow: 0 24px 68px rgba(213,168,79,.14); }
+    .gallery img:nth-child(3), .gallery img:nth-child(8) { grid-row: span 2; height: 554px; }
+
+    /* ── PRICE LIST ── */
+    .price-list {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255,255,255,.025);
+    }
+    .price-row {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      align-items: center;
+      min-height: 96px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      transition: background .2s;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row:hover { background: rgba(255,255,255,.04); }
+    .price-row.featured { background: rgba(213,168,79,.05); }
+    .price-row.featured:hover { background: rgba(213,168,79,.08); }
+    .p-thumb { width: 110px; height: 96px; object-fit: cover; display: block; flex-shrink: 0; }
+    .p-init {
+      width: 110px;
+      height: 96px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1a1a1f, #111115);
+      color: var(--muted);
+      font-family: 'Bebas Neue';
+      font-size: 2rem;
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    .p-info { padding: 0 24px; }
+    .p-name { font-size: clamp(.98rem, 1.8vw, 1.35rem); font-weight: 800; letter-spacing: -.025em; }
+    .p-desc { font-size: .82rem; color: var(--muted); margin-top: 4px; font-weight: 600; line-height: 1.4; }
+    .p-price {
+      padding: 0 24px 0 8px;
+      font-family: 'Bebas Neue';
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      color: var(--gold);
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 24px;
+      padding: 26px;
+    }
+    .stars { color: var(--gold); letter-spacing: 3px; margin-bottom: 14px; font-size: .95rem; }
+    .review p { color: #d4d6dc; line-height: 1.65; font-size: .97rem; }
+    .review b { display: block; margin-top: 16px; color: var(--white); font-weight: 800; font-size: .9rem; }
+
+    /* ── BOOKING ── */
+    .booking-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: start; }
+    .booking { padding: 32px; }
+    .booking form { display: grid; gap: 12px; margin-top: 22px; }
+    .booking input,
+    .booking select,
+    .booking textarea {
+      width: 100%;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.42);
+      color: var(--white);
+      padding: 15px 16px;
+      font: inherit;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    .booking input:focus,
+    .booking select:focus,
+    .booking textarea:focus { border-color: rgba(213,168,79,.65); }
+    .booking textarea { min-height: 96px; resize: vertical; }
+    .booking select option { background: #111; }
+    .booking input::placeholder,
+    .booking textarea::placeholder { color: var(--muted); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .booking .btn { width: 100%; }
+    .contact-stack { display: grid; gap: 14px; }
+    .contact-tile { padding: 26px; }
+    .contact-tile h3 { font-family: 'Bebas Neue'; font-size: 2rem; margin: 0 0 12px; letter-spacing: .05em; }
+    .contact-tile p { margin: 7px 0; color: var(--muted); line-height: 1.6; }
+    .contact-tile a:not(.btn) { color: var(--silver); transition: color .2s; }
+    .contact-tile a:not(.btn):hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    .footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--muted); font-weight: 700; font-size: .9rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-links a { transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── FLOATING + CHAT ── */
+    .floating {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 55;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .float-btns { display: flex; gap: 10px; }
+    .chat-panel {
+      display: none;
+      width: min(380px, 92vw);
+      background: #070709;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.75);
+    }
+    .chat-head {
+      padding: 15px 18px;
+      background: linear-gradient(135deg, #1a1a1f, #2e2a1e);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .88rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+    .chat-close:hover { color: var(--white); }
+    .chat-body { padding: 14px; max-height: 300px; overflow-y: auto; }
+    .msg { padding: 11px 13px; border-radius: 16px; margin: 7px 0; line-height: 1.45; font-size: .92rem; }
+    .bot { background: rgba(255,255,255,.07); color: #e8eaed; }
+    .user { background: rgba(213,168,79,.18); margin-left: 32px; color: var(--white); }
+    .quick { display: flex; gap: 7px; flex-wrap: wrap; padding: 0 14px 12px; }
+    .quick button {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.06);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-size: .79rem;
+      font-weight: 800;
+      font-family: inherit;
+      transition: .2s;
+    }
+    .quick button:hover { background: rgba(255,255,255,.13); }
+    .chat-input { display: flex; border-top: 1px solid rgba(255,255,255,.08); }
+    .chat-input input { flex: 1; background: #09090c; color: var(--white); border: 0; padding: 14px 16px; font: inherit; font-size: .9rem; outline: none; }
+    .chat-input button { border: 0; background: var(--gold); font-weight: 950; padding: 0 16px; cursor: pointer; color: #050505; font-family: inherit; font-size: .82rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .navlinks { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 34px 0 60px; min-height: unset; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-media::before { inset: 12px -12px -12px 12px; }
+      .hero-media img { min-height: 420px; }
+      .price-badge { left: 14px; bottom: 16px; }
+
+      section { padding: 62px 0; }
+      .section-top { display: block; }
+      .section-sub { margin-top: 12px; }
+
+      .services { grid-template-columns: 1fr; }
+
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .gallery img,
+      .gallery img:nth-child(3),
+      .gallery img:nth-child(8) { height: 230px; grid-row: auto; }
+
+      .price-row { grid-template-columns: 80px 1fr auto; min-height: 80px; }
+      .p-thumb, .p-init { width: 80px; height: 80px; font-size: 1.5rem; }
+      .p-info { padding: 0 12px; }
+      .p-name { font-size: .97rem; }
+      .p-price { padding: 0 14px 0 6px; font-size: 1.35rem; }
+
+      .reviews { grid-template-columns: 1fr; }
+
+      .booking-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 500px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .stat:last-child { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">ROY <span>CRUSE</span></a>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#prices">Prices</a>
+      <a href="#book">Book</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary" href="tel:2105633618">Call Roy</a>
+      <button class="hamburger" id="hamBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#work" onclick="closeNav()">Work</a>
+    <a href="#prices" onclick="closeNav()">Prices</a>
+    <a href="#book" onclick="closeNav()">Book</a>
+    <a href="tel:2105633618">Call Roy &mdash; 210-563-3618</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<main id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">San Antonio Barber</div>
+      <h1>Elite cuts.<br><em>Sharp finish.</em></h1>
+      <p class="lead">Premium fades, clean lineups, beard work, designs, enhancements, and house calls from Roy Cruse &mdash; built for athletes, professionals, and anyone who demands elite.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#book">Book Appointment</a>
+        <a class="btn btn-dark" href="sms:2105633618">Text Roy</a>
+        <a class="btn btn-dark" href="https://instagram.com/roy_cruse" target="_blank" rel="noopener">@roy_cruse</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>SA</b><p>San Antonio</p></div>
+        <div class="stat"><b>VIP</b><p>Athlete detail</p></div>
+        <div class="stat"><b>$40+</b><p>Haircuts</p></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/roy-hero.png" alt="Roy Cruse barber work" loading="eager">
+      <div class="price-badge">
+        <b>$40+</b>
+        <p>cuts starting at</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <span class="pill">Services</span>
+        <h2 class="section-title">Premium grooming.</h2>
+      </div>
+      <p class="section-sub">Built for anyone who wants to leave the chair fresh, confident, and photo-ready.</p>
+    </div>
+    <div class="services">
+      <div class="card service">
+        <div class="num">01</div>
+        <h3>Haircuts</h3>
+        <p>Fades, tapers, textured cuts, lineups, and full transformations — high, mid, or low. Tailored to your look.</p>
+      </div>
+      <div class="card service">
+        <div class="num">02</div>
+        <h3>Beard &amp; Face</h3>
+        <p>Beard trims, shaves, eyebrow shaping, enhancements, facial treatments, and hot towel finishing touches.</p>
+      </div>
+      <div class="card service">
+        <div class="num">03</div>
+        <h3>House Calls</h3>
+        <p>Mobile appointments for clients who want the premium experience brought to them. Starting at $120.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <span class="pill">Portfolio</span>
+        <h2 class="section-title">Work that speaks.</h2>
+      </div>
+      <p class="section-sub">Clean fades, textured tops, crispy lineups, beard blends, design work, and camera-ready finishes.</p>
+    </div>
+    <div class="gallery">
+      <img src="assets/IMG_4280.jpg" alt="Fade by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_4276.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_0999.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_1001.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_0804.jpg" alt="Fade with beard by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_0803.jpg" alt="Beard work by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_0760.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_0737.jpg" alt="Design work by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_4492.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+      <img src="assets/IMG_4838.jpg" alt="Haircut by Roy Cruse" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <span class="pill">Pricing</span>
+        <h2 class="section-title">Straight to it.</h2>
+      </div>
+      <p class="section-sub">No surprises. Every service priced clearly &mdash; pick yours and book in seconds.</p>
+    </div>
+    <div class="price-list">
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_4280.jpg" alt="Haircut">
+        <div class="p-info">
+          <div class="p-name">Haircut</div>
+          <div class="p-desc">Fade, taper, or textured cut &mdash; high, mid, or low</div>
+        </div>
+        <div class="p-price">$40</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_0803.jpg" alt="Haircut and beard">
+        <div class="p-info">
+          <div class="p-name">Haircut &amp; Beard</div>
+          <div class="p-desc">Full cut plus beard shaping and trim</div>
+        </div>
+        <div class="p-price">$50</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_4276.jpg" alt="Beard">
+        <div class="p-info">
+          <div class="p-name">Beard</div>
+          <div class="p-desc">Beard trim, shape, and cleanup</div>
+        </div>
+        <div class="p-price">$20</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_0999.jpg" alt="Kids cut">
+        <div class="p-info">
+          <div class="p-name">Kids 12 &amp; Under</div>
+          <div class="p-desc">Clean cut for the little ones</div>
+        </div>
+        <div class="p-price">$30</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_0737.jpg" alt="Design">
+        <div class="p-info">
+          <div class="p-name">Design</div>
+          <div class="p-desc">Custom line work and pattern designs</div>
+        </div>
+        <div class="p-price">$20</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_1001.jpg" alt="Enhancement">
+        <div class="p-info">
+          <div class="p-name">Enhancement</div>
+          <div class="p-desc">Hair color fill and enhancement</div>
+        </div>
+        <div class="p-price">$5</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_0804.jpg" alt="Eyebrows">
+        <div class="p-info">
+          <div class="p-name">Eyebrows</div>
+          <div class="p-desc">Eyebrow shaping and cleanup</div>
+        </div>
+        <div class="p-price">$5</div>
+      </div>
+      <div class="price-row">
+        <img class="p-thumb" src="assets/IMG_4838.jpg" alt="Shave">
+        <div class="p-info">
+          <div class="p-name">Shave</div>
+          <div class="p-desc">Clean straight razor shave</div>
+        </div>
+        <div class="p-price">$15</div>
+      </div>
+      <div class="price-row">
+        <div class="p-init">Fc</div>
+        <div class="p-info">
+          <div class="p-name">Facial</div>
+          <div class="p-desc">Hot towel facial treatment</div>
+        </div>
+        <div class="p-price">$10</div>
+      </div>
+      <div class="price-row">
+        <div class="p-init">Sp</div>
+        <div class="p-info">
+          <div class="p-name">Shampoo</div>
+          <div class="p-desc">Wash and condition treatment</div>
+        </div>
+        <div class="p-price">$10</div>
+      </div>
+      <div class="price-row featured">
+        <img class="p-thumb" src="assets/IMG_4492.jpg" alt="House call">
+        <div class="p-info">
+          <div class="p-name">House Call</div>
+          <div class="p-desc">Premium mobile appointment &mdash; Roy comes to you</div>
+        </div>
+        <div class="p-price">$120+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <span class="pill">Reviews</span>
+        <h2 class="section-title">Clients speak.</h2>
+      </div>
+    </div>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Roy gets the fade right every time. Clean, sharp, and on point. I don't trust anybody else."</p>
+        <b>Regular Client</b>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Best lineup and beard work in San Antonio. The detail and precision is on another level."</p>
+        <b>San Antonio Client</b>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Perfect cut before events, photo shoots, and game days. Roy always delivers. Always fresh."</p>
+        <b>Athlete Client</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="wrap booking-grid">
+    <div class="card booking">
+      <span class="pill">Booking</span>
+      <h2 class="section-title" style="margin-top:12px">Lock in.</h2>
+      <form id="bookForm">
+        <div class="form-row">
+          <input id="name" placeholder="Your name" required autocomplete="name">
+          <input id="phone" placeholder="Phone number" required autocomplete="tel" type="tel">
+        </div>
+        <select id="service" required>
+          <option value="" disabled selected>Select a service&hellip;</option>
+          <option>Haircut &mdash; $40</option>
+          <option>Haircut &amp; Beard &mdash; $50</option>
+          <option>Beard &mdash; $20</option>
+          <option>Kids 12 &amp; Under &mdash; $30</option>
+          <option>Design &mdash; $20</option>
+          <option>Enhancement &mdash; $5</option>
+          <option>Eyebrows &mdash; $5</option>
+          <option>Shave &mdash; $15</option>
+          <option>Facial &mdash; $10</option>
+          <option>Shampoo &mdash; $10</option>
+          <option>House Call &mdash; $120+</option>
+        </select>
+        <input id="date" type="datetime-local" required>
+        <textarea id="notes" placeholder="Style notes, preferred time, or house-call address&hellip;"></textarea>
+        <button class="btn btn-primary" type="submit">Text Roy to Book</button>
+        <button class="btn btn-dark" type="button" id="emailBtn">Email Roy</button>
+        <button class="btn btn-dark" type="button" id="calBtn">Add to Google Calendar</button>
+      </form>
+    </div>
+    <div class="contact-stack">
+      <div class="card contact-tile">
+        <h3>Contact Roy</h3>
+        <p><b style="color:var(--white)">Phone:</b> <a href="tel:2105633618">210-563-3618</a></p>
+        <p><b style="color:var(--white)">Email:</b> <a href="mailto:royecruse@gmail.com">royecruse@gmail.com</a></p>
+        <p><b style="color:var(--white)">Instagram:</b> <a href="https://instagram.com/roy_cruse" target="_blank" rel="noopener">@roy_cruse</a></p>
+      </div>
+      <div class="card contact-tile">
+        <h3>Fast Booking</h3>
+        <p>Send Roy your name, service, preferred day and time, and any style notes &mdash; he'll confirm your slot.</p>
+        <a class="btn btn-gold" href="sms:2105633618&body=Hey%20Roy%2C%20I%20want%20to%20book%20an%20appointment." style="margin-top:14px;display:inline-flex">Text Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>&copy; <span id="year"></span> Roy Cruse Cuts &bull; San Antonio, TX</span>
+    <div class="footer-links">
+      <a href="tel:2105633618">210-563-3618</a>
+      <a href="mailto:royecruse@gmail.com">royecruse@gmail.com</a>
+      <a href="https://instagram.com/roy_cruse" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS + CHAT -->
+<div class="floating">
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-head">
+      <span>Roy Cruse Assistant</span>
+      <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Ask me about prices, services, booking, or Roy's contact info.</div>
+    </div>
+    <div class="quick">
+      <button onclick="quick('prices')">Prices</button>
+      <button onclick="quick('book')">Book</button>
+      <button onclick="quick('contact')">Contact</button>
+      <button onclick="quick('house call')">House Call</button>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Ask about pricing or booking&hellip;" onkeydown="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+  <div class="float-btns">
+    <a class="btn btn-dark" href="sms:2105633618">Text</a>
+    <button class="btn btn-gold" onclick="toggleChat()">Chat</button>
+  </div>
+</div>
+
+<script>
+  const ROY_PHONE = '2105633618', ROY_EMAIL = 'royecruse@gmail.com';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav
+  function closeNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+  document.getElementById('hamBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    document.getElementById('mobileNav').classList.toggle('open');
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#siteNav')) closeNav();
+  });
+
+  // Booking helpers
+  function getField(id) { return document.getElementById(id).value.trim(); }
+
+  function bookingText() {
+    return `Hey Roy, I want to book an appointment.%0A%0AName: ${encodeURIComponent(getField('name'))}%0APhone: ${encodeURIComponent(getField('phone'))}%0AService: ${encodeURIComponent(getField('service'))}%0ADate/Time: ${encodeURIComponent(getField('date'))}%0ANotes: ${encodeURIComponent(getField('notes'))}`;
+  }
+
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    location.href = `sms:${ROY_PHONE}&body=${bookingText()}`;
+  });
+
+  document.getElementById('emailBtn').onclick = () => {
+    const form = document.getElementById('bookForm');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    location.href = `mailto:${ROY_EMAIL}?subject=Booking Request%20%E2%80%94%20Roy%20Cruse%20Cuts&body=${bookingText().replaceAll('%0A', '%0D%0A')}`;
+  };
+
+  document.getElementById('calBtn').onclick = () => {
+    const d = getField('date');
+    if (!d) { alert('Please select a date and time first.'); return; }
+    const start = new Date(d), end = new Date(start.getTime() + 45 * 60000);
+    const fmt = x => x.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const text = encodeURIComponent('Roy Cruse Cuts Appointment');
+    const details = encodeURIComponent(
+      `Service: ${getField('service')}\nCall/Text Roy: 210-563-3618\nEmail: royecruse@gmail.com\nInstagram: @roy_cruse`
+    );
+    window.open(
+      `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${fmt(start)}/${fmt(end)}&details=${details}`,
+      '_blank'
+    );
+  };
+
+  // Chat
+  function toggleChat() {
+    const p = document.getElementById('chatPanel');
+    p.style.display = p.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function addMsg(text, cls) {
+    const body = document.getElementById('chatBody');
+    const m = document.createElement('div');
+    m.className = 'msg ' + cls;
+    m.textContent = text;
+    body.appendChild(m);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function answer(q) {
+    q = q.toLowerCase();
+    if (q.includes('price') || q.includes('cost') || q.includes('how much') || q.includes('charge'))
+      return 'Haircut $40 · Haircut & Beard $50 · Beard $20 · Kids $30 · Design $20 · Enhancement $5 · Eyebrows $5 · Shave $15 · Facial $10 · Shampoo $10 · House Call $120+';
+    if (q.includes('house') || q.includes('mobile') || q.includes('come to'))
+      return 'House calls start at $120. Add your address and details in the booking notes, then text Roy at 210-563-3618 to confirm.';
+    if (q.includes('book') || q.includes('appointment') || q.includes('schedule'))
+      return 'Fill out the booking form on this page or text Roy directly at 210-563-3618 with your name, service, and preferred date/time.';
+    if (q.includes('contact') || q.includes('phone') || q.includes('number') || q.includes('email'))
+      return 'Phone: 210-563-3618 · Email: royecruse@gmail.com · Instagram: @roy_cruse';
+    if (q.includes('location') || q.includes('address') || q.includes('where'))
+      return 'Roy is based in San Antonio, TX. Text him at 210-563-3618 for his current location and availability.';
+    if (q.includes('instagram') || q.includes('social') || q.includes('follow'))
+      return 'Follow Roy on Instagram at @roy_cruse for the latest cuts and updates.';
+    if (q.includes('beard'))
+      return 'Beard only is $20. Haircut + beard together is $50. Text Roy at 210-563-3618 to book.';
+    if (q.includes('kid') || q.includes('child') || q.includes('youth'))
+      return 'Kids 12 and under are $30. Text Roy to book at 210-563-3618.';
+    if (q.includes('design') || q.includes('pattern') || q.includes('line'))
+      return 'Custom hair designs are $20. Can be added to a haircut. Text Roy at 210-563-3618 to discuss.';
+    return "I can help with prices, booking, services, house calls, or Roy's contact info. What do you need?";
+  }
+
+  function sendChat() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+    addMsg(text, 'user');
+    const q = text;
+    input.value = '';
+    setTimeout(() => addMsg(answer(q), 'bot'), 200);
+  }
+
+  function quick(q) {
+    addMsg(q, 'user');
+    setTimeout(() => addMsg(answer(q), 'bot'), 200);
+  }
+</script>
+</body>
+</html>
