@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BTA — Creator Handles for Review</title>
+<style>
+  :root{
+    --bg:#0b0c10; --card:#15171f; --line:#262a36;
+    --ink:#f3f4f6; --muted:#9aa3b2; --accent:#e1306c; --accent2:#69c9d0;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 56px}
+  header{margin-bottom:24px}
+  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--muted);margin:0 0 6px}
+  h1{font-size:24px;margin:0 0 6px;font-weight:650}
+  .sub{color:var(--muted);margin:0;font-size:14px}
+  .count{color:var(--muted);font-size:13px;margin:14px 0 18px}
+  .list{display:grid;gap:10px}
+  .row{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;
+  }
+  .who{min-width:0}
+  .handle{font-weight:600;font-size:16px;word-break:break-all}
+  .handle .at{color:var(--muted)}
+  .links{display:flex;gap:8px;flex:0 0 auto}
+  a.btn{
+    text-decoration:none;font-size:13px;font-weight:600;
+    padding:8px 12px;border-radius:9px;border:1px solid var(--line);
+    color:var(--ink);white-space:nowrap;
+  }
+  a.ig{border-color:rgba(225,48,108,.5)}
+  a.ig:hover{background:rgba(225,48,108,.15)}
+  a.tt{border-color:rgba(105,201,208,.5)}
+  a.tt:hover{background:rgba(105,201,208,.12)}
+  footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.7}
+  footer b{color:var(--ink)}
+  @media (max-width:520px){
+    .row{flex-direction:column;align-items:stretch}
+    .links{justify-content:stretch}
+    a.btn{flex:1;text-align:center}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Blitz The Axis · Signal Scout</p>
+      <h1>Creator Handles — For Review</h1>
+      <p class="sub">Tap a name to open the profile. Instagram is primary; TikTok is the fallback if the handle doesn't resolve.</p>
+    </header>
+    <p class="count" id="count"></p>
+    <div class="list" id="list"></div>
+    <footer>
+      <b>Note:</b> Handles entered as provided. A grayed/“user not found” page means that handle isn’t on that platform — try the other button.
+      <br>Generated for Devin · blitztheaxis.com
+    </footer>
+  </div>
+
+<script>
+  // Edit this list to add/remove creators — cards rebuild automatically.
+  const handles = [
+    "marcus2swole",
+    "katylanecrooks",
+    "korynklimczakk",
+    "al3x.fit",
+    "nell.grabowski",
+    "daisybguerrero",
+    "samantha.baio",
+    "keiran_mcbay",
+    "opentheenoor",
+    "nygalfit",
+    "sheviegains",
+    "matt__kz",
+    "labellabeast",
+    "driplikedyl"
+  ];
+
+  const list = document.getElementById("list");
+  document.getElementById("count").textContent = handles.length + " creators";
+
+  for (const h of handles) {
+    const ig = "https://instagram.com/" + encodeURIComponent(h);
+    const tt = "https://www.tiktok.com/@" + encodeURIComponent(h);
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML =
+      '<div class="who"><div class="handle"><span class="at">@</span>' + h + '</div></div>' +
+      '<div class="links">' +
+        '<a class="btn ig" href="' + ig + '" target="_blank" rel="noopener">Instagram</a>' +
+        '<a class="btn tt" href="' + tt + '" target="_blank" rel="noopener">TikTok</a>' +
+      '</div>';
+    list.appendChild(row);
+  }
+</script>
+</body>
+</html>
